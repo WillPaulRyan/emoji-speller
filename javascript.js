@@ -79,7 +79,7 @@ function replaceAlpha(c) {
     return '✝️';
   }
   
-  else if (c == 'V' || c == 'v') {
+  else if (c == 'V' || c == 'v' || c == 'U' || c == 'u' ) {
     return '🔽';
   }
 
@@ -186,6 +186,10 @@ function replaceDigit(c) {
 
   else if (c == '?') {
     return '❓';
+  }
+
+  else if (c == '$') {
+    return '💲';
   }
 
   else {
