@@ -113,6 +113,11 @@ function parse(text) {
       i++;
     }
     
+    else if (c.toLowerCase() == '<' && text.charAt(i + 1).toLowerCase() == '3') {
+      result += '❤️️';
+      i++;
+    }
+    
     else if (c.toLowerCase() == 'a' && text.charAt(i + 1).toLowerCase() == 't'
       && text.charAt(i + 2) == 'm') {
       result += '🏧';
