@@ -1,1 +1,1 @@
-Check it out: https://willpaulryan.github.io/emoji-speller/
+Check it out: emojispeller.com
