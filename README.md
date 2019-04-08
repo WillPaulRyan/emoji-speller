@@ -1,2 +1,2 @@
 # Emoji Speller
-Check it out: emojispeller.com
+[Check it out!](emojispeller.com)
