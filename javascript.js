@@ -1,225 +1,154 @@
 function copyText() {
+  // Copies text from output bar
   var copyText = document.getElementById("output");
   copyText.select();
   document.execCommand("copy");
 }
 
-function isAlpha(c) {
-    return ((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z'));
-}
-
-function isDigit(c) {
-  return ((c >= ' ') && (c <= '?'));
-}
-
-/* TODO
-Double Characters
-🆑
-🆔
-🆖
-🆗
-™️
-🆙
-🆚
-🚾
-
-🔟
-‼️
-⁉️
-
-Multiple Characters
-🏧
-🆒
-🆓
-🆕
-🆘
-
-💯
-
-*/
-
-function replaceAlpha(c) {
-  if (c == 'A' || c == 'a') {
-    return '🅰';
-  }
-
-  else if (c == 'B' || c == 'b') {
-    return '🅱';
-  }
-  
-  else if (c == 'C' || c == 'c') {
-    return '©️';
-  }
-  
-  else if (c == 'I' || c == 'i') {
-    return 'ℹ️';
-  }
-  
-  else if (c == 'M' || c == 'm') {
-    return 'Ⓜ️';
-  }
-  
-  else if (c == 'O' || c == 'o') {
-    return '🅾';
-  }
-  
-  else if (c == 'P' || c == 'p') {
-    return '🅿';
-  }
-  
-  else if (c == 'Q' || c == 'q') {
-    return '👁️‍🗨️';
-  }
-  
-  else if (c == 'R' || c == 'r') {
-    return '®️';
-  }
-  
-  else if (c == 'S' || c == 's') {
-    return '⚡';
-  }
-  
-  else if (c == 'T' || c == 't') {
-    return '✝️';
-  }
-  
-  else if (c == 'V' || c == 'v' || c == 'U' || c == 'u' ) {
-    return '🔽';
-  }
-
-  else if (c =='X' || c == 'x') {
-    return '✖️';
-  }
-
-  else if (c == 'Z' || c == 'z') {
-    return '💤';
-  }
-
-  else {
-    return c;
-  }
-}
-
-/* DOUBLES
-🔟
-‼️
-⁉️
-
-*/
-
-function replaceDigit(c) {
-  if (c == '1') {
-    return '1️⃣';
-  }
-
-  else if (c == '2') {
-    return '2️⃣';
-  }
-  
-  else if (c == '2') {
-    return '2️⃣';
-  }
-  
-  else if (c == '2') {
-    return '2️⃣';
-  }
-  
-  else if (c == '2') {
-    return '2️⃣';
-  }
-  
-  else if (c == '2') {
-    return '2️⃣';
-  }
-  
-  else if (c == '3') {
-    return '3️⃣';
-  }
-  
-  else if (c == '4') {
-    return '4️⃣';
-  }
-  
-  else if (c == '5') {
-    return '5️⃣';
-  }
-  
-  else if (c == '6') {
-    return '6️⃣';
-  }
-  
-  else if (c == '7') {
-    return '7️⃣';
-  }
-  
-  else if (c == '8') {
-    return '8️⃣';
-  }
-  
-  else if (c == '9') {
-    return '9️⃣';
-  }
-  
-  else if (c == '0') {
-    return '0️⃣';
-  }
-  
-  else if (c == '#') {
-    return '#️⃣';
-  }
-
-  else if (c == '*') {
-    return '*️⃣';
-  }
-
-  else if (c == '+') {
-    return '➕';
-  }
-
-  else if (c == '-') {
-    return '➖';
-  }
-
-  else if (c == '÷') {
-    return '➗';
-  }
-
-  else if (c == '!') {
-    return '❗';
-  }
-
-  else if (c == '?') {
-    return '❓';
-  }
-
-  else if (c == '$') {
-    return '💲';
-  }
-
-  else if (c == ' ') {
-    return '  ';
-  }
-
-  else {
-    return c;
-  }
-}
+// Here's the alphabet:
+const alphabet = {
+  a:'🅰️',
+	b:'🅱️',
+  c:'©️',
+  d:'↩',
+  e:'📧',
+  f:'🎏',
+  g:'⛽',
+  h:'♓',
+  i:'ℹ',
+  j:'🗾',
+  k:'🎋',
+  l:'👢',
+  m:'Ⓜ',
+  n:'♑',
+  o:'🅾',
+  p:'🅿',
+  q:'👁️‍🗨️',
+  r:'®️',
+  s:'💲',
+  t:'✝️',
+  u:'⛎',
+  v:'♈',
+  w:'〰️',
+  x:'❌',
+  y:'✌',
+  z:'💤',
+  1:'1️⃣',
+  2:'2️⃣',
+  3:'3️⃣',
+  4:'4️⃣',
+	5:'5️⃣',
+	6:'6️⃣',
+	7:'7️⃣',
+	8:'8️⃣',
+	9:'9️⃣',
+	0:'0️⃣',
+	'?':'❓',
+	'!':'❗️',
+	'$':'💲',
+	'#':'#️⃣',
+	'*':'*️⃣',
+	'+':'➕',
+	'-':'➖',
+	'÷':'➗',
+	' ':'  ',
+};
 
 function parse(text) {
+  // Create string
   let result = ''
   let c = ''
   
   for (var i = 0; i <text.length; i++) {
     c = text.charAt(i)
     
-    if (isAlpha(c) === true) {
-      result += replaceAlpha(c);
+    // Check for the tuples
+    if (c.toLowerCase() == 'c' && text.charAt(i + 1).toLowerCase() == 'l') {
+      result += '🆑';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'n' && text.charAt(i + 1).toLowerCase() == 'g') {
+      result += '🆖';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'i' && text.charAt(i + 1).toLowerCase() == 'd') {
+      result += '🆔';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'o' && text.charAt(i + 1).toLowerCase() == 'k') {
+      result += '🆗';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 't' && text.charAt(i + 1).toLowerCase() == 'm') {
+      result += '™️';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'u' && text.charAt(i + 1).toLowerCase() == 'p') {
+      result += '🆙';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'v' && text.charAt(i + 1).toLowerCase() == 's') {
+      result += '🆚';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'w' && text.charAt(i + 1).toLowerCase() == 'c') {
+      result += '🚾';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == '!' && text.charAt(i + 1).toLowerCase() == '!') {
+      result += '‼️';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == '!' && text.charAt(i + 1).toLowerCase() == '?') {
+      result += '⁉️';
+      i++;
+    }
+    
+    else if (c.toLowerCase() == 'a' && text.charAt(i + 1).toLowerCase() == 't'
+      && text.charAt(i + 2) == 'm') {
+      result += '🏧';
+      i += 2;
+    }
+    
+    else if (c.toLowerCase() == 'n' && text.charAt(i + 1).toLowerCase() == 'e'
+      && text.charAt(i + 2) == 'w') {
+      result += '🆕';
+      i += 2;
+    }
+    
+    else if (c.toLowerCase() == 's' && text.charAt(i + 1).toLowerCase() == 'o'
+      && text.charAt(i + 2).toLowerCase() == 's') {
+      result += '🆘';
+      i += 2;
+    }
+    
+    else if (c.toLowerCase() == 'c' && text.charAt(i + 1).toLowerCase() == 'o'
+      && text.charAt(i + 2) == 'o' && text.charAt(i + 3).toLowerCase() == 'l') {
+      result += '🆒';
+      i += 3;
+    }
+    
+    else if (c.toLowerCase() == 'f' && text.charAt(i + 1).toLowerCase() == 'r'
+      && text.charAt(i + 2) == 'e' && text.charAt(i + 3).toLowerCase() == 'e') {
+      result += '🆓';
+      i += 3;
+    }
+    
+    // Replace
+    else if (alphabet[c.toLowerCase()]) {
+      result += alphabet[c.toLowerCase()];
     }
 
-    else if (isDigit(c) === true) {
-      result += replaceDigit(c);
-    }
-
+    // Return whatever's left over
     else {
       result += c;
     }
@@ -228,6 +157,7 @@ function parse(text) {
 }
 
 function moveText() {
+  // Copies everything from first input into second input, w/ changes
   var text = document.getElementById("input").value;
   document.getElementById("output").value = parse(text);
 }
