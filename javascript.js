@@ -74,6 +74,10 @@ function replaceAlpha(c) {
   else if (c == 'R' || c == 'r') {
     return '®️';
   }
+
+  else if (c == 'S' || c == 's') {
+    return '⚡';
+  }  
   
   else if (c == 'T' || c == 't') {
     return '✝️';
