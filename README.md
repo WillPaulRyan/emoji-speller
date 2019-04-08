@@ -1,4 +1,4 @@
 # Emoji Speller
 Translate any text into emoji characters.
 
-[Try it out!](www.emojispeller.com)
+[Try it out!](http://www.emojispeller.com)
