@@ -9,7 +9,7 @@ function isAlpha(c) {
 }
 
 function isDigit(c) {
-  return ((c >= '!') && (c <= '?'));
+  return ((c >= ' ') && (c <= '?'));
 }
 
 /* TODO
@@ -74,10 +74,10 @@ function replaceAlpha(c) {
   else if (c == 'R' || c == 'r') {
     return '®️';
   }
-
+  
   else if (c == 'S' || c == 's') {
     return '⚡';
-  }  
+  }
   
   else if (c == 'T' || c == 't') {
     return '✝️';
@@ -194,6 +194,10 @@ function replaceDigit(c) {
 
   else if (c == '$') {
     return '💲';
+  }
+
+  else if (c == ' ') {
+    return '  ';
   }
 
   else {
