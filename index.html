@@ -21,10 +21,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <script src="javascript.js"></script>
-    
+
     <link rel="icon" href="favicon.ico">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script src="javascript.js"></script>
     
     <title>Emoji Speller</title>
   </head>
@@ -37,6 +39,11 @@
             <label class="sr-only" for="input">Input</label>
             <input onkeyup="moveText()" type="text" class="form-control mb-2" id="input" placeholder="Type here" autocomplete="off">
           </div>
+          <!---
+          <div class="col-auto">
+            <button type="reset" class="btn btn-primary mb-2" id="clear">Clear</button>
+          </div>
+          --->
         </div>
         <div class="form-row align-items-center">
           <div class="col-auto">
