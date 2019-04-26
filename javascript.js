@@ -1,3 +1,18 @@
+function clickCounter() {
+  // Counts the number of times each user has clicked "Copy"
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.clickcount) {
+      sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+    } else {
+      sessionStorage.clickcount = 1;
+    }
+    if (sessionStorage.clickcount > 2) {
+      document.getElementById("counter").innerHTML = "You've " + 'clicked "Copy" ' + sessionStorage.clickcount + " times.";
+    }
+  }
+}
+
+
 function copyText() {
   // Copies text from output bar
   var copyText = document.getElementById("output");
