@@ -37,7 +37,7 @@
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label class="sr-only" for="input">Input</label>
-            <input onkeyup="moveText()" type="text" class="form-control mb-2" id="input" placeholder="Type here" autocomplete="off">
+            <input onkeyup="moveText();" onfocus="copyReset();" type="text" class="form-control mb-2" id="input" placeholder="Type here" autocomplete="off">
           </div>
           <div class="col-auto">
             <button type="reset" class="btn btn-primary mb-2" id="clear">Clear</button>
@@ -46,10 +46,10 @@
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label class="sr-only" for="output">Output</label>
-            <input type="text" class="form-control mb-2" id="output" placeholder="Copy your text here" disabled>
+            <input type="text" class="form-control mb-2" id="output" placeholder="Copy your text here" readonly>
           </div>
           <div class="col-auto">
-            <button onclick="copyText();clickCounter();blur();" type="button" class="btn btn-primary mb-2" id="copy">Copy</button>
+            <button onclick="copyText(); clickCounter();" type="button" class="btn btn-primary mb-2" id="copy">Copy</button>
           </div>
         </div>
         <div>

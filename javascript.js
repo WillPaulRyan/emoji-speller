@@ -13,11 +13,17 @@ function clickCounter() {
 }
 
 
+function copyReset() {
+  document.getElementById("copy").innerHTML = "Copy"
+}
+
+
 function copyText() {
   // Copies text from output bar
   var copyText = document.getElementById("output");
   copyText.select();
   document.execCommand("copy");
+  document.getElementById("copy").innerHTML = "Copied!"
 }
 
 // Here's the alphabet:
@@ -66,8 +72,9 @@ const alphabet = {
 	'+':'➕',
 	'-':'➖',
 	'÷':'➗',
-	' ':'　',
+	' ':' ',
 };
+
 
 function parse(text) {
   // Create string
